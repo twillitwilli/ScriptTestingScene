@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 435436684}
   - component: {fileID: 435436683}
   m_Layer: 0
-  m_Name: EnemyExample
+  m_Name: Enemy Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -797,9 +797,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 435436681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8e29de543fb7944ab29a0fa4cdff10, type: 3}
+  m_Script: {fileID: 11500000, guid: 05cf6ba36611b4347b9c9aef49d06c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangedAttack: {fileID: 9101168184005645852, guid: 08851017ec95edd429ecbf0bf60c81cf, type: 3}
+  meleeAttack: {fileID: 3040951547241302767, guid: 47adf53830a6c3c42941933a2d0c3937, type: 3}
 --- !u!135 &435436684
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -954,6 +956,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &539619665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539619666}
+  - component: {fileID: 539619667}
+  m_Layer: 0
+  m_Name: PartTimeEmployee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &539619666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539619665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092160683}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &539619667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539619665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641c196ce39a0294eac52ffbb2ededa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  companyName: Game Dev HQ
+  employeeName: Henry
+  hoursWorked: 50
+  hourlyRate: 22
 --- !u!1 &556093725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1155,7 @@ GameObject:
   - component: {fileID: 657953990}
   - component: {fileID: 657953989}
   m_Layer: 0
-  m_Name: PlayerExample
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1135,9 +1184,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 657953987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8e29de543fb7944ab29a0fa4cdff10, type: 3}
+  m_Script: {fileID: 11500000, guid: 05cf6ba36611b4347b9c9aef49d06c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangedAttack: {fileID: 9101168184005645852, guid: 08851017ec95edd429ecbf0bf60c81cf, type: 3}
+  meleeAttack: {fileID: 3040951547241302767, guid: 47adf53830a6c3c42941933a2d0c3937, type: 3}
 --- !u!135 &657953990
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1246,7 +1297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &670989316
 Transform:
   m_ObjectHideFlags: 0
@@ -1477,6 +1528,52 @@ MonoBehaviour:
     uIImage: {fileID: 0}
     isPoisonous: 0
     healthAdjustment: 30
+--- !u!1 &819923323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819923324}
+  - component: {fileID: 819923325}
+  m_Layer: 0
+  m_Name: FullTimeEmployee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &819923324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819923323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092160683}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &819923325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819923323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13fe34de185f5e499da351e9a7ff032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  companyName: Game Dev HQ
+  employeeName: James
+  salaryAmount: 6500
 --- !u!1 &857133554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,7 +1765,7 @@ GameObject:
   - component: {fileID: 1073798348}
   - component: {fileID: 1073798347}
   m_Layer: 0
-  m_Name: EnemyExample (1)
+  m_Name: Enemy Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1697,9 +1794,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1073798345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8e29de543fb7944ab29a0fa4cdff10, type: 3}
+  m_Script: {fileID: 11500000, guid: 05cf6ba36611b4347b9c9aef49d06c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangedAttack: {fileID: 9101168184005645852, guid: 08851017ec95edd429ecbf0bf60c81cf, type: 3}
+  meleeAttack: {fileID: 3040951547241302767, guid: 47adf53830a6c3c42941933a2d0c3937, type: 3}
 --- !u!135 &1073798348
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1762,6 +1861,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073798345}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1092160682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092160683}
+  m_Layer: 0
+  m_Name: EmployeeExamples
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1092160683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092160682}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 539619666}
+  - {fileID: 819923324}
+  m_Father: {fileID: 1553349114}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1095822765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,7 +2026,7 @@ GameObject:
   - component: {fileID: 1192379909}
   - component: {fileID: 1192379908}
   m_Layer: 0
-  m_Name: EnemyExample (2)
+  m_Name: Enemy Dragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1924,9 +2055,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1192379906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8e29de543fb7944ab29a0fa4cdff10, type: 3}
+  m_Script: {fileID: 11500000, guid: 05cf6ba36611b4347b9c9aef49d06c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rangedAttack: {fileID: 9101168184005645852, guid: 08851017ec95edd429ecbf0bf60c81cf, type: 3}
+  meleeAttack: {fileID: 3040951547241302767, guid: 47adf53830a6c3c42941933a2d0c3937, type: 3}
 --- !u!135 &1192379909
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2240,6 +2373,7 @@ GameObject:
   - component: {fileID: 1366569932}
   - component: {fileID: 1366569931}
   - component: {fileID: 1366569930}
+  - component: {fileID: 1366569933}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2306,12 +2440,44 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366569929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -12.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1366569933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366569929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1398014421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,7 +2580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1553349114
 Transform:
   m_ObjectHideFlags: 0
@@ -2427,6 +2593,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2069076560}
+  - {fileID: 1092160683}
   m_Father: {fileID: 527085081}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2986,7 +3153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2069076560
 Transform:
   m_ObjectHideFlags: 0
