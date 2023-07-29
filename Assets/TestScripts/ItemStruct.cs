@@ -38,6 +38,5 @@ public class ItemStructTesting : MonoBehaviour
     {
         apple.name = "Apple";
         apple.itemID = 2;
-
     }
 }
