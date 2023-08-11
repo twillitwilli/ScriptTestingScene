@@ -78,7 +78,6 @@ public class WorkingWithEnums : MonoBehaviour
             _setToSpecificMagic = false;
         }
     }
-
     private void WeaponStatDisplay()
     {
         if (_displayWeaponStats)
