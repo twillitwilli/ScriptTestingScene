@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using unityEngine = UnityEngine;
 
 public class CalculatingWithLamda : MonoBehaviour
 {
@@ -12,13 +13,6 @@ public class CalculatingWithLamda : MonoBehaviour
     {
         if (usingLambda) { UsingLambda(); }
         else NotUsingLambda();
-    }
-
-    private void NotUsingLambda()
-    {
-        Sum += CalculateSum;
-
-        Sum(5, 5);
     }
     private void UsingLambda()
     {
@@ -32,7 +26,13 @@ public class CalculatingWithLamda : MonoBehaviour
             Debug.Log(message);
         };
 
-        Sum(5, 5);
+        Sum(unityEngine::Random.Range(0, 100), unityEngine::Random.Range(0, 100));
+    }
+    private void NotUsingLambda()
+    {
+        Sum += CalculateSum;
+
+        Sum(unityEngine::Random.Range(0, 100), unityEngine::Random.Range(0, 100));
     }
     private void CalculateSum(int a, int b)
     {
