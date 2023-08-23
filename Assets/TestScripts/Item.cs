@@ -7,5 +7,5 @@ public class Item
 {
     public string name;
     public int index;
-    public Sprite uIImage;
+    public int value;
 }

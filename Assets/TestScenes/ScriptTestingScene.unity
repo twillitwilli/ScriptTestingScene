@@ -2568,46 +2568,46 @@ MonoBehaviour:
   _items:
   - name: Copper Coin
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: Silver
     index: 1
-    uIImage: {fileID: 0}
+    value: 0
   - name: Gold
     index: 2
-    uIImage: {fileID: 0}
+    value: 0
   _weapons:
   - name: Iron Sword
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
     attackBonus: 5
     critRateBonus: 15
     critDamageBonus: 30
   - name: Steel Sword
     index: 1
-    uIImage: {fileID: 0}
+    value: 0
     attackBonus: 8
     critRateBonus: 18
     critDamageBonus: 38
   - name: Katana
     index: 2
-    uIImage: {fileID: 0}
+    value: 0
     attackBonus: 13
     critRateBonus: 20
     critDamageBonus: 52
   _consumables:
   - name: Bread
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
     isPoisonous: 0
     healthAdjustment: 12
   - name: Raw Chicken
     index: 1
-    uIImage: {fileID: 0}
+    value: 0
     isPoisonous: 1
     healthAdjustment: 8
   - name: Cooked Chicken
     index: 2
-    uIImage: {fileID: 0}
+    value: 0
     isPoisonous: 0
     healthAdjustment: 30
 --- !u!1 &819923323
@@ -2656,6 +2656,68 @@ MonoBehaviour:
   companyName: Game Dev HQ
   employeeName: James
   salaryAmount: 6500
+--- !u!1 &820277966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 820277967}
+  - component: {fileID: 820277968}
+  m_Layer: 0
+  m_Name: FilterItems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &820277967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820277966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1580930893}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &820277968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820277966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b9ec42d6310424ca9c636b48a05cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filterType: 0
+  _value: 0
+  _runCheck: 0
+  _items:
+  - name: Magic Hat
+    index: 112
+    value: 25
+  - name: Ice Staff
+    index: 6544
+    value: 550
+  - name: Iron Shield
+    index: 226
+    value: 150
+  - name: Dungeon Key
+    index: 456354
+    value: 120
+  - name: Bread
+    index: 2243
+    value: 5
 --- !u!1 &828042584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,7 +3332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1027355419
 Transform:
   m_ObjectHideFlags: 0
@@ -4673,31 +4735,31 @@ MonoBehaviour:
   itemDatabase:
   - name: Sword
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
 --- !u!4 &1333853827
 Transform:
   m_ObjectHideFlags: 0
@@ -5496,7 +5558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1580930893
 Transform:
   m_ObjectHideFlags: 0
@@ -5510,6 +5572,7 @@ Transform:
   m_Children:
   - {fileID: 1027355419}
   - {fileID: 1787236349}
+  - {fileID: 820277967}
   m_Father: {fileID: 527085081}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6192,7 +6255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1787236349
 Transform:
   m_ObjectHideFlags: 0
@@ -6268,34 +6331,34 @@ MonoBehaviour:
   inventory:
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
   - name: 
     index: 0
-    uIImage: {fileID: 0}
+    value: 0
 --- !u!1 &1842587964
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 public class LambdaGetName : MonoBehaviour
 {
     public Action onGetName;
+
     private void Start()
     {
         // Using this delegate, first no parameters are being entered, then using the lambda expression

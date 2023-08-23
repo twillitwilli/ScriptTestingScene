@@ -11,7 +11,8 @@ public class QuizGradesChallenge : MonoBehaviour
 
     public void Start()
     {
-        var passingGrade = quizGrades.Where(grade => grade > 69);
+        // when making Linq order by desending, you can use Reverse() to make the order by ascending
+        var passingGrade = quizGrades.Where(grade => grade > 69).OrderByDescending(decendingOrder => decendingOrder).Reverse();
         foreach (var grades in passingGrade)
         {
             passingGrades.Add(grades);
