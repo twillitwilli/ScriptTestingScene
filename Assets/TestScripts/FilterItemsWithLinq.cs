@@ -31,9 +31,9 @@ public class FilterItemsWithLinq : MonoBehaviour
                     break;
 
                 case FilterType.grabItemsWithValueGreaterThan:
-                    var resultItems = _items.Where(item => item.value > _value);
+                    var itemCollection = _items.Where(item => item.value > _value);
 
-                    foreach (var item in resultItems)
+                    foreach (var item in itemCollection)
                     {
                         Debug.Log("Item Name = " + item.name + "\nItem Value = " + item.value);
                     }
