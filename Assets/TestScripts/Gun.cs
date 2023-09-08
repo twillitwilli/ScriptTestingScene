@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject newBullet = PoolManager.Instance.GetBullet();
+            GameObject newBullet = BulletPoolManager.Instance.GetItem();
 
             newBullet.transform.position = _bulletSpawnLocation.position;
             newBullet.transform.rotation = _bulletSpawnLocation.rotation;

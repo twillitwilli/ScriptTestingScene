@@ -22,6 +22,6 @@ public class Bullet : MonoBehaviour
 
     private void OnDisable()
     {
-        PoolManager.Instance.ReturnObjectToPool(gameObject);
+        BulletPoolManager.Instance.ReturnObjectToPool(gameObject);
     }
 }
