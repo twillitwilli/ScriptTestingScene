@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,11 +17,11 @@ public abstract class PoolManager<T> : MonoBehaviour where T : PoolManager<T>
     }
 
     [SerializeField]
-    private GameObject _itemPrefab;
+    private GameObject _objectPrefab;
 
-    private List<GameObject> _itemPool = new List<GameObject>();
+    private List<GameObject> _objectPool = new List<GameObject>();
 
-    private int _itemIndex;
+    private int _objectIndex;
 
     private void Awake()
     {
@@ -33,24 +32,30 @@ public abstract class PoolManager<T> : MonoBehaviour where T : PoolManager<T>
     {
         GameObject newItem;
 
-        if (_itemPool.Count < 1)
-            newItem = SpawnNewItem(_itemPrefab, _itemPool);
-
-        if (!_itemPool[0].activeSelf)
+        if (_objectPool.Count < 1)
         {
-            newItem = _itemPool[0];
-            _itemIndex = 0;
+            newItem = SpawnNewItem(_objectPrefab, _objectPool);
+
+            return newItem;
+        }
+
+        else if (!_objectPool[0].activeSelf)
+        {
+            newItem = _objectPool[0];
+            _objectIndex = 0;
+
+            return newItem;
         }
 
         else
         {
-            _itemIndex++;
-            _itemIndex = _itemIndex > (_itemPool.Count - 1) ? 0 : _itemIndex;
+            _objectIndex++;
+            _objectIndex = _objectIndex > (_objectPool.Count - 1) ? 0 : _objectIndex;
 
-            newItem = GetItemFromPool(_itemIndex, _itemPool);
+            newItem = GetItemFromPool(_objectIndex, _objectPool);
+
+            return newItem;
         }
-
-        return newItem;
     }
 
     GameObject GetItemFromPool(int poolIdx, List<GameObject> whichPool)
@@ -60,7 +65,7 @@ public abstract class PoolManager<T> : MonoBehaviour where T : PoolManager<T>
         bool spawnNewItem = whichPool[poolIdx].activeSelf ? true : false;
 
         if (spawnNewItem)
-            itemFromPool = SpawnNewItem(_itemPrefab, whichPool);
+            itemFromPool = SpawnNewItem(_objectPrefab, whichPool);
 
         else
             itemFromPool = whichPool[poolIdx];

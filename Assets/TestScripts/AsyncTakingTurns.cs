@@ -24,7 +24,6 @@ public class AsyncTakingTurns : MonoBehaviour
         await Task.Delay(3000);
         await BeginMovement();
 
-        
 
         await Task.Delay(1000);
         await BeginAttacks();
