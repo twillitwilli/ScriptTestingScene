@@ -59,7 +59,7 @@ public class LinqExamples : MonoBehaviour
                 case LinqType.Where:
                     /// Using Linq Where keyword allows you to check a list of array for a feature you want it to
                     /// return from items that exist in that list. Here I am just checking the length of the names
-                    /// to determine a new collect
+                    /// to determine a new collection
                     /// 
                     var result = playerNames.Where(names => names.Length > 4);
                     foreach (var name in result)
