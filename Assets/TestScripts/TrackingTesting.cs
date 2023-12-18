@@ -12,9 +12,6 @@ public class TrackingTesting : MonoBehaviour
     [SerializeField]
     LineRenderer _marker;
 
-    float minDistance = 0.1f;
-
-
     [SerializeField]
     bool
         _usingMarker,
@@ -22,12 +19,15 @@ public class TrackingTesting : MonoBehaviour
         _finishSave,
         _loadTrackingInfo;
 
-    int _savedFrames;
+    bool _creatingNewLine;
+
     Vector3 _previousPos;
+
     [SerializeField]
-    List<Vector3> _savedPositions = new List<Vector3>();
+    List<Vector3> _linePositions = new List<Vector3>();
+
     [SerializeField]
-    List<bool> _markerInUse = new List<bool>();
+    List<LineRenderer> _createdLines = new List<LineRenderer>();
 
     private void Start()
     {
@@ -36,6 +36,9 @@ public class TrackingTesting : MonoBehaviour
 
     private async void Update()
     {
+        if (!_usingMarker && _creatingNewLine)
+            CreateNewLine();
+
         if (_finishSave)
         {
             Debug.Log("Saving...");
@@ -49,8 +52,8 @@ public class TrackingTesting : MonoBehaviour
             _finishSave = false;
         }
 
-        if (_startSavingTracking && Vector3.Distance(_trackedObj.transform.position, _previousPos) > minDistance)
-            SaveTrackingData();
+        if (_startSavingTracking && Vector3.Distance(_trackedObj.transform.position, _previousPos) > 0.1f)
+            UpdateLine();
 
         if (_loadTrackingInfo)
         {
@@ -59,42 +62,55 @@ public class TrackingTesting : MonoBehaviour
         }
     }
 
-    private void SaveTrackingData()
-    {
-        _savedFrames++;
-
-        _savedPositions.Add(_previousPos);
-
-        UpdateLine();
-    }
-
     private void UpdateLine()
     {
-        _marker.positionCount++;
-        _marker.SetPosition(_marker.positionCount - 1, _trackedObj.transform.position);
-        _previousPos = _trackedObj.transform.position;
+        if (_usingMarker)
+        {
+            if (!_creatingNewLine)
+            {
+                
+                _linePositions.Add(_trackedObj.transform.position);
+                _creatingNewLine = true;
+            }
+
+            _marker.positionCount++;
+            _marker.SetPosition(_marker.positionCount - 1, _trackedObj.transform.position);
+
+            _linePositions.Add(_trackedObj.transform.position);
+
+            _previousPos = _trackedObj.transform.position;
+        }
+    }
+
+    void CreateNewLine()
+    {
+        GameObject newObj = new GameObject();
+        LineRenderer newLine = newObj.AddComponent<LineRenderer>();
+
+        LineSettings(newLine);
+
+        newLine.positionCount = _linePositions.Count;
+        newLine.SetPositions(_linePositions.ToArray());
+
+        _createdLines.Add(newLine);
+
+        _marker.positionCount = 0;
+        _linePositions.Clear();
+
+        _creatingNewLine = false;
+    }
+
+    void LineSettings(LineRenderer newLine)
+    {
+        newLine.colorGradient = _marker.colorGradient;
+        newLine.material = _marker.material;
+        newLine.startWidth = _marker.startWidth;
+        newLine.endWidth = _marker.endWidth;
     }
 
     TrackingInfo CreateTrackingDataSave()
     {
         TrackingInfo newData = new TrackingInfo();
-
-        newData.savedFrames = _savedFrames;
-
-        newData.markerInUseDuringFrame = new bool[_savedFrames];
-
-        newData.trackedPosX = new float[_savedFrames];
-        newData.trackedPosY = new float[_savedFrames];
-        newData.trackedPosZ = new float[_savedFrames];
-
-        for (int i = 0; i < _savedFrames; i++)
-        {
-            newData.markerInUseDuringFrame[i] = _markerInUse[i];
-
-            newData.trackedPosX[i] = _savedPositions[i].x;
-            newData.trackedPosY[i] = _savedPositions[i].y;
-            newData.trackedPosZ[i] = _savedPositions[i].z;
-        }
 
 
         return newData;
@@ -102,36 +118,6 @@ public class TrackingTesting : MonoBehaviour
 
     private async Task LoadTrackingData()
     {
-        TrackingInfo loadedData = BinarySaveLoadTracking.LoadData();
 
-        _savedFrames = loadedData.savedFrames;
-        
-        // Load all the data
-        for (int i = 0; i < _savedFrames; i++)
-        {
-            _markerInUse.Add(loadedData.markerInUseDuringFrame[i]);
-
-            Vector3 newPosition = new Vector3(loadedData.trackedPosX[i], loadedData.trackedPosY[i], loadedData.trackedPosZ[i]);
-            _savedPositions.Add(newPosition);
-        }
-
-        for (int i = 0; i < _savedFrames; i++)
-        {
-            UpdateLine();
-
-            await Move(_savedPositions[i]);
-        }
-
-        _loadTrackingInfo = false;
-    }
-
-    public async Task Move(Vector3 newPosition)
-    {
-        while (_trackedObj.transform.position != newPosition)
-        {
-            _trackedObj.transform.position = Vector3.MoveTowards(_trackedObj.transform.position, newPosition, 3 * Time.deltaTime);
-
-            await Task.Yield();
-        }
     }
 }
