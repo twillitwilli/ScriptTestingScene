@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class TrackingInfo
 {
-    public int savedFrames;
+    public int totalLines;
 
-    public bool[] markerInUseDuringFrame;
+    public int lengthOfLine;
 
     public float[]
         trackedPosX,

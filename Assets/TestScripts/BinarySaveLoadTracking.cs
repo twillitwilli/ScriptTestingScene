@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+//Acts in place of how a server would hold the data
 public static class BinarySaveLoadTracking
 {
-    public async static Task SaveData(TrackingInfo saveData)
+    public static void SaveData(TrackingInfo saveData, string lineData)
     {
         // Create a new binary formatter
         BinaryFormatter formatter = new BinaryFormatter();
 
         // Get the name of the path, the file name
-        string fileName = Application.persistentDataPath + "/" + "TrackingData";
+        string fileName = Application.persistentDataPath + "/" + "TrackingData" + lineData;
 
         // Create a filestream, this allows you to read and write from a file, you pass in the filename and it with
         // either open the file if it exists or create the file if it doesnt exist
@@ -26,10 +26,10 @@ public static class BinarySaveLoadTracking
         filestream.Close();
     }
 
-    public static TrackingInfo LoadData()
+    public static TrackingInfo LoadData(string lineData)
     {
         // When loading a file the first thing you must always do, is check to make sure the file exists
-        string fileName = Application.persistentDataPath + "/" + "TrackingData";
+        string fileName = Application.persistentDataPath + "/" + "TrackingData" + lineData;
 
         if (File.Exists(fileName))
         {
@@ -50,17 +50,5 @@ public static class BinarySaveLoadTracking
         }
 
         else return null; // File Not Found
-    }
-
-    public static void DeleteFileSave()
-    {
-        string fileName = Application.persistentDataPath + "/" + "TrackingData";
-
-        if (File.Exists(fileName))
-        {
-            File.Delete(fileName);
-        }
-
-        else { Debug.Log("No File Found"); }
     }
 }
